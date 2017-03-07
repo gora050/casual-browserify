@@ -1,6 +1,6 @@
 {
   "name": "casual-browserify",
-  "version": "1.5.9",
+  "version": "1.5.11",
   "description": "Fake data generator (Browserify friendly)",
   "main": "src/casual_browserify.js",
   "scripts": {
