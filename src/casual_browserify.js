@@ -41,6 +41,12 @@ var locales = {
          date: require('./providers/it_CH/date'),
          person: require('./providers/it_CH/person')
     },
+    'nb_NO': {
+         address: require('./providers/nb_NO/address'),
+         color: require('./providers/nb_NO/color'),
+         date: require('./providers/nb_NO/date'),
+         person: require('./providers/nb_NO/person')
+    },
     'nl_NL': {
          address: require('./providers/nl_NL/address'),
          person: require('./providers/nl_NL/person')
@@ -125,7 +131,8 @@ var build_casual = function() {
 		'it_CH',
 		'de_DE',
 		'ar_SY',
-		'pt_BR'
+		'pt_BR',
+		'nb_NO'
 	];
 
 	locales.forEach(casual.register_locale);

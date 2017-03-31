@@ -108,7 +108,7 @@ function generateCasualBrowserify(done) {
 	});
 }
 
-generateCasualBrowserify();
+generateCasualBrowserify(function () {});
 
 
 
