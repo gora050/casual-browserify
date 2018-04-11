@@ -69,11 +69,7 @@ var localeRequires = {
          text: require('./providers/uk_UA/text')
     }
 };
-var safe_require = function(filename) {
-	var parts = filename.split('/').slice(-2),
-		locale = parts[0],
-		provider = parts[1];
-
+var safe_require = function(locale, provider) {
 	return localeRequires[locale][provider] || {};
 };
 
@@ -118,7 +114,7 @@ var build_casual = function() {
 			providers.forEach(function(provider) {
 				casual.register_provider(helpers.extend(
 					require_provider(provider),
-					safe_require(__dirname + '/providers/' + locale + '/' + provider)
+					safe_require(locale, provider)
 				));
 			});
 

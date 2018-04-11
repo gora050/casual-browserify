@@ -84,7 +84,9 @@ function createTemplate() {
 
 	return {
 		start: source.slice(0, start),
-		end: source.slice(end + 1).replace("require('./providers/' + provider)", "require_provider(provider)")
+		end: source.slice(end + 1)
+			.replace("require('./providers/' + provider)", 'require_provider(provider)')
+			.replace("safe_require(__dirname + '/providers/' + locale + '/' + provider)", 'safe_require(locale, provider)')
 	};
 }
 
