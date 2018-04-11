@@ -4,6 +4,6 @@ var safe_require = function(filename) {
 		locale = parts[0],
 		provider = parts[1];
 
-	return locales[locale][provider] || {};
+	return localeRequires[locale][provider] || {};
 };
 

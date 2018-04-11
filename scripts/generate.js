@@ -44,11 +44,11 @@ function toRequires(sources) {
 			return out;
 		};
 
-	a('var providers = {\n');
+	a('var providerRequires = {\n');
 	a(asObject(sources.providers, './providers/', '    '));
 	a('\n};\n\n');
 
-	a('var locales = {\n');
+	a('var localeRequires = {\n');
 
 	Object.keys(sources.locales).forEach(function (locale) {
 		a('    \'' + locale + '\': {\n');
@@ -84,14 +84,15 @@ function createTemplate() {
 
 	return {
 		start: source.slice(0, start),
-		end: source.slice(end + 1)
+		end: source.slice(end + 1).replace("require('./providers/' + provider)", "require_provider(provider)")
 	};
 }
 
 function generateCasualBrowserify(done) {
 	var data = getDataSources(),
 		template = createTemplate(),
-		safeRequireSource = fs.readFileSync(srcpath + '/safe_require_browserify.js');
+		safeRequireSource = fs.readFileSync(srcpath + '/safe_require_browserify.js'),
+        requireProviderSource = fs.readFileSync(srcpath + '/require_provider_browserify.js');
 
 	fs.open(srcpath + '/casual_browserify.js', 'w', function (err, fd) {
 		if (err) {
@@ -102,6 +103,7 @@ function generateCasualBrowserify(done) {
 			"var helpers = require('./helpers');\n\n");
 		fs.writeSync(fd, toRequires(data));
 		fs.writeSync(fd, safeRequireSource.toString());
+		fs.writeSync(fd, requireProviderSource.toString());
 		fs.writeSync(fd, template.end);
 		fs.close(fd, done);
 		console.log('Generated casual_browserify.js');
