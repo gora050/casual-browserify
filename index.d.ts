@@ -1,5 +1,5 @@
-declare module "casual" {
-  
+declare module "casual-browserify" {
+
   interface generators {
     // EMBEDDED GENERATORS
     _country(): string;         // 'United Kingdom'
