@@ -297,7 +297,7 @@ declare namespace Casual {
     functions(): functions;
   }
 }
-declare module "casual" {
+declare module "casual-browserify" {
   const casual: Casual.Generators & Casual.Casual;
   export = casual;
 }
