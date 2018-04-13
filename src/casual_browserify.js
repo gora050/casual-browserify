@@ -2,7 +2,7 @@
 
 var helpers = require('./helpers');
 
-var providers = {
+var providerRequires = {
     address: require('./providers/address'),
     color: require('./providers/color'),
     date: require('./providers/date'),
@@ -14,7 +14,7 @@ var providers = {
     text: require('./providers/text')
 };
 
-var locales = {
+var localeRequires = {
     'ar_SY': {
          address: require('./providers/ar_SY/address'),
          color: require('./providers/ar_SY/color'),
@@ -69,12 +69,13 @@ var locales = {
          text: require('./providers/uk_UA/text')
     }
 };
-var safe_require = function(filename) {
-	var parts = filename.split('/').slice(-2),
-		locale = parts[0],
-		provider = parts[1];
+var safe_require = function(locale, provider) {
+	return localeRequires[locale][provider] || {};
+};
 
-	return locales[locale][provider] || {};
+
+var require_provider = function(provider) {
+    return providerRequires[provider] || {};
 };
 
 
@@ -112,8 +113,8 @@ var build_casual = function() {
 
 			providers.forEach(function(provider) {
 				casual.register_provider(helpers.extend(
-					require('./providers/' + provider),
-					safe_require(__dirname + '/providers/' + locale + '/' + provider)
+					require_provider(provider),
+					safe_require(locale, provider)
 				));
 			});
 
