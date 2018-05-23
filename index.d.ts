@@ -1,6 +1,6 @@
-declare module "casual-browserify" {
+declare namespace Casual {
+  interface Generators {
 
-  interface generators {
     // EMBEDDED GENERATORS
     _country(): string;         // 'United Kingdom'
     _city(): string;            // 'New Ortiz chester'
@@ -178,7 +178,7 @@ declare module "casual-browserify" {
     rgb_array(): Array<number>        // [ 194, 193, 166 ]
   }
 
-  interface casual {
+  interface Casual {
     // EMBEDDED GENERATORS
     country: string;         // 'United Kingdom'
     city: string;            // 'New Ortiz chester'
@@ -231,7 +231,7 @@ declare module "casual-browserify" {
     phone: string;            // '982-790-2592'
 
     // numbers
-
+    boolean: boolean;
     random: number;                         // 0.7171590146608651 (core generator)
     integer(from?: number, to?: number): number  // 632
     double(from?: number, to?: number): number  // -234.12987444
@@ -280,7 +280,7 @@ declare module "casual-browserify" {
     rgb_array: Array<number>        // [ 194, 193, 166 ]
 
     // CUSTOM GENERATORS
-    define(type: string, cb: () => any): void;
+    define(type: string, cb: (...args: any[]) => any): void;
 
     // HELPERS
     random_element(elements: Array<any>): any;
@@ -297,7 +297,8 @@ declare module "casual-browserify" {
     // GENERATORS functions
     functions(): functions;
   }
-  
-  const casual: generators & casual;
+}
+declare module "casual" {
+  const casual: Casual.Generators & Casual.Casual;
   export = casual;
 }

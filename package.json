@@ -1,6 +1,6 @@
 {
   "name": "casual-browserify",
-  "version": "1.5.12",
+  "version": "1.5.19",
   "description": "Fake data generator (Browserify friendly)",
   "main": "src/casual_browserify.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "mock",
     "mocking",
     "generator",
-	"browserify"
+    "browserify"
   ],
   "author": "Egor Gumenyuk <boo1ean0807@gmail.com>",
   "license": "MIT",
