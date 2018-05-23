@@ -1,5 +1,6 @@
 declare namespace Casual {
   interface Generators {
+
     // EMBEDDED GENERATORS
     _country(): string;         // 'United Kingdom'
     _city(): string;            // 'New Ortiz chester'
