@@ -18,13 +18,11 @@ var localeRequires = {
     'ar_SY': {
          address: require('./providers/ar_SY/address'),
          color: require('./providers/ar_SY/color'),
-         date: require('./providers/ar_SY/date'),
          person: require('./providers/ar_SY/person'),
          text: require('./providers/ar_SY/text')
     },
     'de_DE': {
          address: require('./providers/de_DE/address'),
-         date: require('./providers/de_DE/date'),
          person: require('./providers/de_DE/person'),
          text: require('./providers/de_DE/text')
     },
@@ -43,18 +41,15 @@ var localeRequires = {
     },
     'it_CH': {
          address: require('./providers/it_CH/address'),
-         date: require('./providers/it_CH/date'),
          person: require('./providers/it_CH/person')
     },
     'it_IT': {
          address: require('./providers/it_IT/address'),
-         date: require('./providers/it_IT/date'),
          person: require('./providers/it_IT/person')
     },
     'nb_NO': {
          address: require('./providers/nb_NO/address'),
          color: require('./providers/nb_NO/color'),
-         date: require('./providers/nb_NO/date'),
          person: require('./providers/nb_NO/person')
     },
     'nl_NL': {
@@ -68,7 +63,6 @@ var localeRequires = {
     },
     'ro_RO': {
          address: require('./providers/ro_RO/address'),
-         date: require('./providers/ro_RO/date'),
          person: require('./providers/ro_RO/person')
     },
     'ru_RU': {
