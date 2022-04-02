@@ -1,2 +1,2 @@
-var moment = require('moment');
+import * as moment from 'moment';
 moment.locale('it');

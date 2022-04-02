@@ -1,4 +1,4 @@
-var moment = require('moment');
+import * as moment from 'moment';
 moment.locale('nb');
 
 var provider = {
